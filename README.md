@@ -4,7 +4,7 @@ Phase_hybrid_from_next_gen phases defined hybrids in your dataset. In comparison
 #How does it work, and what do you need?
 For this program to work, you need to have a folder that contains:
 
--- fasta alignments (full alignments, not just SNPs. You also need a separate fasta file per locus, not one giant concatenated file) for the loci you want to use (with any missing samples padded out with Ns or ?s). If you are coming from pyRAD see the instructions at the bottom of the readme for converting your *.loci file to fasta.
+-- fasta alignments (full alignments, not just SNPs. You also need a separate fasta file per locus, not one giant concatenated file) for the loci you want to use (with any missing samples padded out with Ns or ?s). If you are coming from pyRAD see the instructions at the bottom of the readme for converting your *.loci file to fasta. The program will strip any hyphens "-" from your sample names and loci names, so please be aware of this.
 
 -- phasing_everyone.sh
 
@@ -15,7 +15,7 @@ For this program to work, you need to have a folder that contains:
 You'll also need to have installed bwa, samtools, R and Java, and added these to your path. You'll also need to install GenomeAnalysisTK.jar (GATK) and picard.jar (picard), but we'll actually need the full pathway to these jars in the phasing_settings folder below.
 
 #Phasing_settings file example
-The shell script is using bwa, gatk, samtools and R to pull out your samples (R), do a reference-guided assembly (bwa, samtools) on your cleaned *.fastq.gz reads from your samples, and then calling variants/phasing these (gatk), before using the "new reference" to do the process again to get the other alleles for each of your samples.
+The shell script is using bwa, gatk, samtools and R to pull out your samples (R), do a reference-guided assembly (bwa, samtools) on your cleaned *.fastq.gz reads from your samples, and then calling variants/phasing these (gatk), before using the "new reference" to do the process again to get the other alleles for each of your samples. The program will strip any hyphens "-" from your sample names and loci names, so please be aware of this.
 
 To run this yourself you will need a file with the input settings named phasing_settings in the folder with your fasta sequences and the scripts. In this file, on each separate line in this order you will need:
 
