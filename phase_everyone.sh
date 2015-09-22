@@ -91,6 +91,7 @@ mv temp_alt2.fa $name.1.fa;
 mv safe.$i.ref.fa $name.2.fa
 rm -rf temp*;
 
+done
 ###############UP TO HERE REWORKING
 
 for i in `ls *.fasta`;
