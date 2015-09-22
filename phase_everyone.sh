@@ -39,8 +39,6 @@ then
 bwa mem $i $forward > temp.sam;
 fi
 
-###UP TO HERE
-
 java -jar $picard AddOrReplaceReadGroups I=temp.sam O=tempsort.sam SORT_ORDER=coordinate LB=rglib PL=illumina PU=phase SM=everyone;
 java -jar $picard MarkDuplicates MAX_FILE_HANDLES=1000 I=tempsort.sam O=tempsortmarked.sam M=temp.metrics AS=TRUE;
 java -jar $picard SamFormatConverter I=tempsortmarked.sam O=tempsortmarked.bam;
@@ -92,6 +90,11 @@ mv safe.$i.ref.fa $name.2.fa
 rm -rf temp*;
 
 done
+
+for i in `ls *1.fa`;
+do sed -i 's/-//g' $i;
+done
+
 ###############UP TO HERE REWORKING
 
 for i in `ls *.fasta`;
