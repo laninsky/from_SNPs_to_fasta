@@ -1,5 +1,5 @@
 # phase_everyone
-Phase_hybrid_from_next_gen phases defined hybrids in your dataset. This phases all the samples in your next-gen dataset.
+Phase_hybrid_from_next_gen phases defined hybrids in your dataset. In comparison, this pipeline phases all the samples in your next-gen dataset.
 
 #How does it work, and what do you need?
 For this program to work, you need to have a folder that contains:
