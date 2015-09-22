@@ -15,7 +15,7 @@ For this program to work, you need to have a folder that contains:
 You'll also need to have installed bwa, samtools, R and Java, and added these to your path. You'll also need to install GenomeAnalysisTK.jar (GATK) and picard.jar (picard), but we'll actually need the full pathway to these jars in the phasing_settings folder below.
 
 #Phasing_settings file example
-The shell script is using bwa, gatk, samtools and R to pull out the hybrid sample (R), do a reference-guided assembly (bwa, samtools) on your cleaned *.fastq.gz reads from your hybrid, and then calling variants/phasing these (gatk), before using the "new reference" to do the process again to get the other alleles for your hybrid.
+The shell script is using bwa, gatk, samtools and R to pull out your samples (R), do a reference-guided assembly (bwa, samtools) on your cleaned *.fastq.gz reads from your samples, and then calling variants/phasing these (gatk), before using the "new reference" to do the process again to get the other alleles for each of your samples.
 
 To run this yourself you will need a file with the input settings named phasing_settings in the folder with your fasta sequences and the scripts. In this file, on each separate line in this order you will need:
 
