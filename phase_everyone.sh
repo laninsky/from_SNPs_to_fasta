@@ -94,14 +94,3 @@ done
 for i in `ls *1.fa`;
 do sed -i 's/-//g' $i;
 done
-
-###############UP TO HERE REWORKING
-
-for i in `ls *.fasta`;
-do name1="ONE_$i";
-name2="TWO_$i";
-cp $i $name1;
-mv $i $name2;
-done;
-
-Rscript allelelifying.R;
