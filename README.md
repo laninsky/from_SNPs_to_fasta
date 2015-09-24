@@ -1,5 +1,5 @@
 # phase_everyone
-Phase_hybrid_from_next_gen phases defined hybrids in your dataset. In comparison, this pipeline phases all the samples in your next-gen dataset. You will end up with two fasta files per individual containing the phased alleles (one contains allele for all the loci, and the other contains allele two for all the loci). This pipeline assumes you only have diploid individuals. 
+Phase_hybrid_from_next_gen phases defined hybrids in your dataset. In comparison, this pipeline phases all the samples in your next-gen dataset. You will end up with two fasta files per individual containing the phased alleles (the first contains allele one for all the loci, and the other contains allele two for all the loci). This pipeline assumes you only have diploid individuals. 
 
 #How does it work, and what do you need?
 For this program to work, you need to have a folder that contains:
