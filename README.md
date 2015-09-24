@@ -6,7 +6,7 @@ For this program to work, you need to have a folder that contains:
 
 -- fasta alignments (full alignments, not just SNPs. You also need a separate fasta file per locus, not one giant concatenated file) for the loci you want to use (with any missing samples padded out with Ns or ?s). If you are coming from pyRAD see the instructions at the bottom of the readme for converting your *.loci file to fasta. Any hyphens "-" will be stripped from your sample names and loci names, so please be aware of this.
 
--- phasing_everyone.sh
+-- phase_everyone.sh
 
 -- The R-scripts: onelining.R and split_samples.R scripts (although most of the code in onelining.R is similar to the eponymous script in Phase_hybrid_from_next_gen, they are a litle bit different so make sure you use the script from this repository)
 
@@ -40,10 +40,10 @@ paired
 NB: Note the differences between this file and the one used in the Phase_hybrid_from_next_gen pipeline, if you are familiar with that pipeline
 
 #To run the script
-bash phasing_everyone.sh
+bash phase_everyone.sh
 
 #Is the script running successfully?
-The first few steps of phasing_everyone.sh are bash/R so it might not look like it is doing much using top/htop. To confirm it is actually running, check your directory: files corresponding to your sample names should be growing in size as the scripts syphon off the samples into them. After these first steps, you should see bwa/java running through top/htop.
+The first few steps of phase_everyone are bash/R so it might not look like it is doing much using top/htop. To confirm it is actually running, check your directory: files corresponding to your sample names should be growing in size as the scripts syphon off the samples into them. After these first steps, you should see bwa/java running through top/htop.
 
 #Coming from pyRAD
 Your .loci file can be turned in a folder of fasta alignments using the scripts at: https://github.com/laninsky/Phase_hybrid_from_next_gen/tree/master/helper_scripts
