@@ -25,7 +25,7 @@ Line 2: path to picard
 
 Line 3: paired or single, depending on your sequencing method
 
-Line 4: the pathway to your 'cleaned' F reads (or just your cleaned reads if single end). Substitute "$name" for the actual sample name wherever this occurs in the pathway to the reads. This program expects the name of the reads to match the name of the samples in the downstream fasta files, and for the pathway to the reads to be standard across your samples.
+Line 4: the pathway to your 'cleaned' F reads (or just your cleaned reads if single end). Substitute "${name}" for the actual sample name wherever this occurs in the pathway to the reads. This program expects the name of the reads to match the name of the samples in the fasta files, and for the pathway to the reads to be standard across your samples.
 
 Line 5: the same thing for your 'cleaned' R reads if you have paired sequence data
 
@@ -54,6 +54,16 @@ This code was first published in: TBD
 If you could cite the pub, and the progam as below, that would be lovely:
 
 Alexander, A. 2015. phase_everyone v0.0.0. Available from https://github.com/laninsky/phase_everyone
+
+This pipeline also wouldn't be possible without the programs listed below. Please cite them as well:
+
+R: R Core Team. 2015. R: A language and environment for statistical computing. URL http://www.R-project.org/. R Foundation for Statistical Computing, Vienna, Austria. https://www.r-project.org/
+
+bwa: See citation info at: http://bio-bwa.sourceforge.net/bwa.shtml#13 and Li, H. "Toward better understanding of artifacts in variant calling from high-coverage samples." Bioinformatics (Oxford, England) 30, no. 20 (2014): 2843.
+
+picard: http://broadinstitute.github.io/picard/
+
+GATK: See citation info at https://www.broadinstitute.org/gatk/about/citing
 
 #Version history
 v0.0.0: still a work in progress
