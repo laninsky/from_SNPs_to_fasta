@@ -48,6 +48,9 @@ The first few steps of phase_everyone are bash/R so it might not look like it is
 #Coming from pyRAD
 Your .loci file can be turned in a folder of fasta alignments using the scripts at: https://github.com/laninsky/Phase_hybrid_from_next_gen/tree/master/helper_scripts
 
+#What if I have already got *.bam files together for my samples?
+You will need to tweak the phase_everyone.sh file to target your *.bam files to begin with instead. Check out the example_bam folder for an example of this. You'll still need the other scripts mentioned above.
+
 #Suggested citation
 This code was first published in: TBD
 
