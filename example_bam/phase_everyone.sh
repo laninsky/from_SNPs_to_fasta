@@ -14,7 +14,7 @@ gatk=`tail -n+1 phasing_settings | head -n1`
 picard=`tail -n+2 phasing_settings | head -n1`
 sequencing=`tail -n+3 phasing_settings | head -n1`
 
-for i in \ls -d varanus_*;
+for i in `\ls -d varanus_*`;
 do name=`echo $i`;
 
 forward_proto=`tail -n+4 phasing_settings | head -n1`;
