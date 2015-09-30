@@ -64,6 +64,8 @@ R: R Core Team. 2015. R: A language and environment for statistical computing. U
 
 bwa: See citation info at: http://bio-bwa.sourceforge.net/bwa.shtml#13 and Li, H. "Toward better understanding of artifacts in variant calling from high-coverage samples." Bioinformatics (Oxford, England) 30, no. 20 (2014): 2843.
 
+samtools: See citation info at: http://www.htslib.org/doc/#manual-pages
+
 picard: http://broadinstitute.github.io/picard/
 
 GATK: See citation info at https://www.broadinstitute.org/gatk/about/citing
