@@ -1,4 +1,10 @@
 # phase_everyone
+
+NOTE: I think all the functionality of this repository is encompassed by:
+https://github.com/laninsky/reference_aligning_to_established_loci
+
+So I am no longer actively maintaining this repository. If there is something that works for you in here, and not in reference_aligning_to_established_loci let me know!
+
 This pipeline phases all the samples in your next-gen dataset. You will end up with two fasta files per individual containing the phased alleles (the first contains allele one for all the loci, and the other contains allele two for all the loci). This pipeline assumes you only have diploid individuals. 
 
 #How does it work, and what do you need?
