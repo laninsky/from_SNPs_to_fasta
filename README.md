@@ -1,5 +1,5 @@
 # phase_everyone
-Phase_hybrid_from_next_gen phases defined hybrids in your dataset. In comparison, this pipeline phases all the samples in your next-gen dataset. You will end up with two fasta files per individual containing the phased alleles (the first contains allele one for all the loci, and the other contains allele two for all the loci). This pipeline assumes you only have diploid individuals. 
+This pipeline phases all the samples in your next-gen dataset. You will end up with two fasta files per individual containing the phased alleles (the first contains allele one for all the loci, and the other contains allele two for all the loci). This pipeline assumes you only have diploid individuals. 
 
 #How does it work, and what do you need?
 For this program to work, you need to have a folder that contains:
@@ -8,9 +8,9 @@ For this program to work, you need to have a folder that contains:
 
 -- phase_everyone.sh
 
--- The R-scripts: onelining.R and split_samples.R scripts (although most of the code in onelining.R is similar to the eponymous script in Phase_hybrid_from_next_gen, they are a litle bit different so make sure you use the script from this repository)
+-- The R-scripts: onelining.R and split_samples.R scripts (onelining.R also exists in my other repositories but can be a litle bit different so make sure you use the script from this repository)
 
--- Your phasing_settings file (see below - note, this file is also slightly different to the one used by Phase_hybrid_from_next_gen).
+-- Your phasing_settings file (see below).
 
 You'll need to have installed bwa, samtools, R and Java, and added these to your path. You'll also need to install GenomeAnalysisTK.jar (GATK) and picard.jar (picard), but we'll actually need the full pathway to these jars in the phasing_settings folder below.
 
