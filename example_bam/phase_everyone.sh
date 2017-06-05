@@ -30,7 +30,8 @@ java -jar $picard SamFormatConverter I=tempsortmarked.sam O=tempsortmarked.bam V
 samtools index tempsortmarked.bam;
 java -jar $gatk -T RealignerTargetCreator -R contigs_to_probes.fasta -I tempsortmarked.bam -o tempintervals.list;
 java -jar $gatk -T IndelRealigner -R contigs_to_probes.fasta -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
-java -jar $gatk -T HaplotypeCaller -R contigs_to_probes.fasta -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_emit_conf 30 -stand_call_conf 30 -o temp_raw_variants.vcf;
+# The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
+java -jar $gatk -T HaplotypeCaller -R contigs_to_probes.fasta -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
 java -jar $gatk -T ReadBackedPhasing -R contigs_to_probes.fasta -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
 java -jar $gatk -T FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R contigs_to_probes.fasta -o temp_alt.fa;
 
@@ -61,7 +62,8 @@ java -jar $picard SamFormatConverter I=tempsortmarked.sam O=tempsortmarked.bam;
 samtools index tempsortmarked.bam;
 java -jar $gatk -T RealignerTargetCreator -R $name.fa -I tempsortmarked.bam -o tempintervals.list;
 java -jar $gatk -T IndelRealigner -R $name.fa -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
-java -jar $gatk -T HaplotypeCaller -R $name.fa -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_emit_conf 30 -stand_call_conf 30 -o temp_raw_variants.vcf;
+# The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
+java -jar $gatk -T HaplotypeCaller -R $name.fa -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
 java -jar $gatk -T ReadBackedPhasing -R $name.fa -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
 java -jar $gatk -T FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R $name.fa -o temp_alt.fa;
 
