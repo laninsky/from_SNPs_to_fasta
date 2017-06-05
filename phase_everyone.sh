@@ -45,7 +45,8 @@ java -jar $picard SamFormatConverter I=tempsortmarked.sam O=tempsortmarked.bam;
 samtools index tempsortmarked.bam;
 java -jar $gatk -T RealignerTargetCreator -R $i -I tempsortmarked.bam -o tempintervals.list;
 java -jar $gatk -T IndelRealigner -R $i -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
-java -jar $gatk -T HaplotypeCaller -R $i -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_emit_conf 30 -stand_call_conf 30 -o temp_raw_variants.vcf;
+# The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
+java -jar $gatk -T HaplotypeCaller -R $i -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
 java -jar $gatk -T ReadBackedPhasing -R $i -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
 java -jar $gatk -T FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R $i -o temp_alt.fa;
 
@@ -77,7 +78,8 @@ java -jar $picard SamFormatConverter I=tempsortmarked.sam O=tempsortmarked.bam;
 samtools index tempsortmarked.bam;
 java -jar $gatk -T RealignerTargetCreator -R $i -I tempsortmarked.bam -o tempintervals.list;
 java -jar $gatk -T IndelRealigner -R $i -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
-java -jar $gatk -T HaplotypeCaller -R $i -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_emit_conf 30 -stand_call_conf 30 -o temp_raw_variants.vcf;
+# The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
+java -jar $gatk -T HaplotypeCaller -R $i -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
 java -jar $gatk -T ReadBackedPhasing -R $i -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
 java -jar $gatk -T FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R $i -o temp_alt.fa;
 
