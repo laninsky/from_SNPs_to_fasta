@@ -48,8 +48,7 @@ samtools index tempsortmarked.bam;
 #$gatk/gatk -T IndelRealigner -R $i -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
 # The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
 $gatk/gatk HaplotypeCaller -R $i -I tempsortmarked.bam -stand-call-conf 30 -O temp_raw_variants.vcf;
-$gatk/gatk ReadBackedPhasing -R $i -I tempsortmarked.bam  --variant temp_raw_variants.vcf -O temp_phased_SNPs.vcf;
-$gatk/gatk FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R $i -O temp_alt.fa;
+$gatk/gatk FastaAlternateReferenceMaker -V temp_raw_variants.vcf  -R $i -O temp_alt.fa;
 
 Rscript onelining.R;
 
@@ -82,8 +81,7 @@ samtools index tempsortmarked.bam;
 #$gatk/gatk -T IndelRealigner -R $i -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
 # The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
 $gatk/gatk HaplotypeCaller -R $i -I tempsortmarked.bam -stand-call-conf 30 -O temp_raw_variants.vcf;
-$gatk/gatk ReadBackedPhasing -R $i -I tempsortmarked.bam  --variant temp_raw_variants.vcf -O temp_phased_SNPs.vcf;
-$gatk/gatk FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R $i -O temp_alt.fa;
+$gatk/gatk FastaAlternateReferenceMaker -V temp_raw_variants.vcf  -R $i -O temp_alt.fa;
 
 Rscript onelining.R;
 
