@@ -25,7 +25,7 @@ The shell script is using bwa, gatk, samtools and R to pull out your samples (R)
 
 To run phase_everyone, you will need a file with the input settings named phasing_settings in the folder with your fasta sequences and the scripts. In this file, on each separate line, in this order, you will need:
 
-Line 1: path to gatk
+Line 1: path to folder containing gatk executable
 
 Line 2: path to picard
 
@@ -34,7 +34,14 @@ Line 3: paired or single, depending on your sequencing method
 Line 4: the pathway to your 'cleaned' F reads (or just your cleaned reads if single end). Substitute "${name}" for the actual sample name wherever this occurs in the pathway to the reads. This program expects the name of the reads to match the name of the samples in the fasta files, and for the pathway to the reads to be standard across your samples.
 
 Line 5: the same thing for your 'cleaned' R reads if you have paired sequence data
-
+```
+/home/a499a400/bin/GATK/
+/home/a499a400/bin/picard/dist/picard.jar
+paired
+/home/a499a400/Kaloula/cleaned-reads/${name}/split-adapter-quality-trimmed/${name}-READ1.fastq.gz
+/home/a499a400/Kaloula/cleaned-reads/${name}/split-adapter-quality-trimmed/${name}-READ2.fastq.gz
+```
+For GATK pre-version 4 (make sure to use the phase_everyone_pre_v4_gatk.sh versions)
 ```
 /home/a499a400/bin/GenomeAnalysisTK.jar
 /home/a499a400/bin/picard/dist/picard.jar
