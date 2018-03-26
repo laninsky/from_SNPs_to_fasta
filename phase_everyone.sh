@@ -25,7 +25,7 @@ name=`echo $i | sed 's/.fa//'`;
 forward_proto=`tail -n+4 phasing_settings | head -n1`;
 forward=`eval "echo $forward_proto"`;
 
-gatk38=`tail -n+5 phasing_settings | head -n1`;
+gatk38=`tail -n+6 phasing_settings | head -n1`;
 
 java -jar $picard CreateSequenceDictionary R=$i O=$name.dict;
 
