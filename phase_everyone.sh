@@ -14,6 +14,7 @@ done;
 gatk=`tail -n+1 phasing_settings | head -n1`
 picard=`tail -n+2 phasing_settings | head -n1`
 sequencing=`tail -n+3 phasing_settings | head -n1`
+gatk38=`tail -n+6 phasing_settings | head -n1`;
 
 for i in `ls *.fa`;
 do sed -i 's/\?/N/g' $i;
@@ -25,7 +26,7 @@ name=`echo $i | sed 's/.fa//'`;
 forward_proto=`tail -n+4 phasing_settings | head -n1`;
 forward=`eval "echo $forward_proto"`;
 
-gatk38=`tail -n+6 phasing_settings | head -n1`;
+
 
 java -jar $picard CreateSequenceDictionary R=$i O=$name.dict;
 
