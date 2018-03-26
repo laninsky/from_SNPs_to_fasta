@@ -25,6 +25,8 @@ name=`echo $i | sed 's/.fa//'`;
 forward_proto=`tail -n+4 phasing_settings | head -n1`;
 forward=`eval "echo $forward_proto"`;
 
+gatk38=`tail -n+5 phasing_settings | head -n1`;
+
 java -jar $picard CreateSequenceDictionary R=$i O=$name.dict;
 
 if [ $sequencing == paired ]
@@ -48,7 +50,7 @@ samtools index tempsortmarked.bam;
 #$gatk/gatk -T IndelRealigner -R $i -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
 # The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
 $gatk/gatk HaplotypeCaller -R $i -I tempsortmarked.bam -stand-call-conf 30 -O temp_raw_variants.vcf;
-$gatk/gatk FastaAlternateReferenceMaker -V temp_raw_variants.vcf  -R $i -O temp_alt.fa;
+java -jar $gatk38 -T FastaAlternateReferenceMaker -V temp_raw_variants.vcf  -R $i -o temp_alt.fa;
 
 Rscript onelining.R;
 
@@ -81,7 +83,7 @@ samtools index tempsortmarked.bam;
 #$gatk/gatk -T IndelRealigner -R $i -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
 # The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
 $gatk/gatk HaplotypeCaller -R $i -I tempsortmarked.bam -stand-call-conf 30 -O temp_raw_variants.vcf;
-$gatk/gatk FastaAlternateReferenceMaker -V temp_raw_variants.vcf  -R $i -O temp_alt.fa;
+java -jar $gatk38 -T FastaAlternateReferenceMaker -V temp_raw_variants.vcf  -R $i -o temp_alt.fa;
 
 Rscript onelining.R;
 
