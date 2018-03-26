@@ -77,5 +77,6 @@ picard: http://broadinstitute.github.io/picard/
 GATK: See citation info at https://www.broadinstitute.org/gatk/about/citing
 
 # Version history
+v0.0.2: GATK v 4.0 is a standalone executable rather than a *.jar file, so this was tweaked in the code on the 26-Mar-2018. The previous phase_everyone.sh files are available as phase_everyone_pre_v4_gatk.sh
 v0.0.1: The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
 v0.0.0: still a work in progress
