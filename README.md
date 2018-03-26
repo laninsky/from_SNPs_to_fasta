@@ -35,7 +35,7 @@ Line 4: the pathway to your 'cleaned' F reads (or just your cleaned reads if sin
 
 Line 5: the same thing for your 'cleaned' R reads if you have paired sequence data
 ```
-/home/a499a400/bin/GATK/
+/home/a499a400/bin/GATK
 /home/a499a400/bin/picard/dist/picard.jar
 paired
 /home/a499a400/Kaloula/cleaned-reads/${name}/split-adapter-quality-trimmed/${name}-READ1.fastq.gz
