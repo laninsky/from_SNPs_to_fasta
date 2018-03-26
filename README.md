@@ -33,7 +33,7 @@ Line 3: paired or single, depending on your sequencing method
 
 Line 4: the pathway to your 'cleaned' F reads (or just your cleaned reads if single end). Substitute "${name}" for the actual sample name wherever this occurs in the pathway to the reads. This program expects the name of the reads to match the name of the samples in the fasta files, and for the pathway to the reads to be standard across your samples.
 
-Line 5: the same thing for your 'cleaned' R reads if you have paired sequence data
+Line 5: the same thing for your 'cleaned' R reads if you have paired sequence data (leave blank if you do not)
 
 Line 6: Pathway to GATK 3.8/GenomeAnalysisTK.jar (unfortunately not all tools needed were ported to GATK v4)
 ```
