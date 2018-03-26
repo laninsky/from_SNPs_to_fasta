@@ -28,12 +28,13 @@ java -jar $picard AddOrReplaceReadGroups I=temp.sam O=tempsort.sam SORT_ORDER=co
 java -jar $picard MarkDuplicates MAX_FILE_HANDLES=1000 I=tempsort.sam O=tempsortmarked.sam M=temp.metrics AS=TRUE VALIDATION_STRINGENCY=SILENT;
 java -jar $picard SamFormatConverter I=tempsortmarked.sam O=tempsortmarked.bam VALIDATION_STRINGENCY=SILENT;
 samtools index tempsortmarked.bam;
-$gatk/gatk -T RealignerTargetCreator -R contigs_to_probes.fasta -I tempsortmarked.bam -o tempintervals.list;
-$gatk/gatk -T IndelRealigner -R contigs_to_probes.fasta -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
+# These tools were depreciated in gatk version 4
+#$gatk/gatk -T RealignerTargetCreator -R contigs_to_probes.fasta -I tempsortmarked.bam -o tempintervals.list;
+#$gatk/gatk -T IndelRealigner -R contigs_to_probes.fasta -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
 # The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
-$gatk/gatk -T HaplotypeCaller -R contigs_to_probes.fasta -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
-$gatk/gatk -T ReadBackedPhasing -R contigs_to_probes.fasta -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
-$gatk/gatk -T FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R contigs_to_probes.fasta -o temp_alt.fa;
+$gatk/gatk HaplotypeCaller -R contigs_to_probes.fasta -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
+$gatk/gatk ReadBackedPhasing -R contigs_to_probes.fasta -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
+$gatk/gatk FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R contigs_to_probes.fasta -o temp_alt.fa;
 
 Rscript onelining.R;
 
@@ -60,12 +61,13 @@ java -jar $picard AddOrReplaceReadGroups I=temp.sam O=tempsort.sam SORT_ORDER=co
 java -jar $picard MarkDuplicates MAX_FILE_HANDLES=1000 I=tempsort.sam O=tempsortmarked.sam M=temp.metrics AS=TRUE;
 java -jar $picard SamFormatConverter I=tempsortmarked.sam O=tempsortmarked.bam;
 samtools index tempsortmarked.bam;
-$gatk/gatk -T RealignerTargetCreator -R $name.fa -I tempsortmarked.bam -o tempintervals.list;
-$gatk/gatk -T IndelRealigner -R $name.fa -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
+# These tools were depreciated in gatk version 4
+#$gatk/gatk -T RealignerTargetCreator -R $name.fa -I tempsortmarked.bam -o tempintervals.list;
+#$gatk/gatk -T IndelRealigner -R $name.fa -I  tempsortmarked.bam -targetIntervals tempintervals.list -o temp_realigned_reads.bam;
 # The -stand_emit_conf 30 option is deprecated in GATK v 3.7 and was removed from this code on the 5-June-2017
-$gatk/gatk -T HaplotypeCaller -R $name.fa -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
-$gatk/gatk -T ReadBackedPhasing -R $name.fa -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
-$gatk/gatk -T FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R $name.fa -o temp_alt.fa;
+$gatk/gatk HaplotypeCaller -R $name.fa -I temp_realigned_reads.bam --genotyping_mode DISCOVERY -stand_call_conf 30 -o temp_raw_variants.vcf;
+$gatk/gatk ReadBackedPhasing -R $name.fa -I temp_realigned_reads.bam  --variant temp_raw_variants.vcf -o temp_phased_SNPs.vcf;
+$gatk/gatk FastaAlternateReferenceMaker -V temp_phased_SNPs.vcf -R $name.fa -o temp_alt.fa;
 
 Rscript onelining.R;
 
