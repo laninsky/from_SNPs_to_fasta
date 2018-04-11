@@ -67,6 +67,10 @@ Your .loci file can be turned in a folder of fasta alignments using the scripts 
 #What if I have already got *.bam files together for my samples?
 You will need to tweak the phase_everyone.sh file to target your *.bam files to begin with instead. Check out the example_bam folder for an example of this. You'll still need the other scripts mentioned above.
 
+# Note about applying to amplicon sequencing
+Please see the discussion about potential problems with applying this code to amplicon sequencing mentioned at:
+https://github.com/laninsky/direct_mito_sequencing/blob/master/4_filtering_fasta_on_pileup/README.md
+
 # Suggested citation
 This code was first published in: TBD
 
